@@ -17,7 +17,7 @@
   input {
     font-family: $font-family-body;
     padding: 8px 12px;
-    outline: 1px solid $color-grey;
+    outline: 1px solid $color-grey-50;
     border: none;
     border-radius: $border-radius-small;
     transition: outline-color 1s ease;
@@ -82,19 +82,52 @@
   font-family: $font-family-body;
   font-size: $font-size-small;
   border-radius: $border-radius-medium;
-  color: $color-white;
   padding: 8px 12px;
   margin: 15px 0 0;
   min-width: 120px;
   width: 100%;
   outline: none;
-  border: none;
+  border: 1px solid $color-text;
   cursor: pointer;
   &.primary {
-    background-color: $color-primary-800;
+    background-color: $color-secondary-500;
+    box-shadow: 4px 4px $color-secondary-700;
+    &:hover {
+      background-color: $color-secondary-200;
+      transform: translateY(4px) translateX(4px);
+      box-shadow: 2px 2px $color-secondary-700;
+    }
   }
   &.secondary {
-    background-color: $color-grey;
+    background-color: $color-grey-50;
     color: $color-text;
+  }
+}
+
+h1 {
+  -webkit-animation: animated-text 2s steps(50) 0.5s 1 normal both;
+  animation: animated-text 2s steps(50) 0.5s 1 normal both;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@-webkit-keyframes animated-text {
+  0% {
+    width: 0;
+  }
+
+  to {
+    width: 400px;
+  }
+}
+
+@keyframes animated-text {
+  0% {
+    width: 0;
+  }
+
+  to {
+    width: 400px;
   }
 }

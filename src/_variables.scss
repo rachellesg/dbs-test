@@ -7,40 +7,50 @@ $font-size-small: 14px;
 $font-size-medium: 16px;
 $font-size-large: 20px;
 $font-size-xl: 26px; // Typically reserved for headers
-$font-size-xxl: 38px; // Typically reserved for headers
+$font-size-xxl: 38px;
+$font-size-hero: 55px;
 
 $line-height-small: 1.4;
 $line-height-medium: 1.5;
 $line-height-large: 1.6;
 
 // Color Palette
-$color-primary-50: #f7f2f7;
-$color-primary-100: #ead9ec;
-$color-primary-200: #ddc0e1;
-$color-primary-300: #d0a7d6;
-$color-primary-400: #c390cb;
-$color-primary-500: #8d6a9f;
-$color-primary-600: #7b5e8f;
-$color-primary-700: #69527f;
-$color-primary-800: #57466f;
-$color-primary-900: #453a5f;
+$color-primary-50: #fff6ff;
+$color-primary-100: rgb(253, 238, 255);
+$color-primary-200: #fdc8d2;
+$color-primary-300: #ffb3c1;
+$color-primary-400: #fc849a;
+$color-primary-500: #ff6884;
+$color-primary-600: #d03c58;
+$color-primary-700: #981d33;
+$color-primary-800: #6d0014;
+$color-primary-900: #2d060d;
 
-$color-secondary-50: #fff5e5;
-$color-secondary-100: #ffe2b7;
-$color-secondary-200: #ffcd89;
-$color-secondary-300: #ffb75c;
-$color-secondary-400: #ffa238;
-$color-secondary-500: #dda448;
-$color-secondary-600: #c59640;
-$color-secondary-700: #aa8638;
-$color-secondary-800: #917730;
-$color-secondary-900: #796829;
+$color-secondary-50: #e3f7f6;
+$color-secondary-100: #d3f2f1;
+$color-secondary-200: #c2edeb;
+$color-secondary-300: #b2e8e6;
+$color-secondary-400: #a1e3e1;
+$color-secondary-500: #c3e6e2;
+$color-secondary-600: #47cfca;
+$color-secondary-700: #3e9794;
+$color-secondary-800: #2e918e;
+$color-secondary-900: #19706e;
 
-$color-background: #f5f5f5;
+$color-background: #fbf5e7;
 $color-text: #333333;
 
 $color-white: #ffffff;
-$color-grey: #cfc7d2;
+$color-grey-50: #cfc7d2;
+$color-grey-100: #bfb4c1;
+$color-grey-200: #afa0b0;
+$color-grey-300: #9e8f9f;
+$color-grey-400: #8e7e8e;
+$color-grey-500: #7d6e7e;
+$color-grey-600: #929292;
+$color-grey-700: #656565;
+$color-grey-800: #4e4e4e;
+$color-grey-900: #2a2a2a;
 
 $color-success: #63c132;
 $color-error: #bb342f;
