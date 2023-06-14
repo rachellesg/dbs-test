@@ -9,7 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
   message: string = '';
-  submitted: boolean = false;
+  submitted: boolean | null = null;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -18,21 +18,21 @@ export class LoginComponent {
     });
   }
 
-  isUsernameInvalid(): boolean {
+  isUsernameInvalid(): boolean | null {
     const usernameControl = this.loginForm.get('username');
     return (
       (usernameControl?.invalid &&
         (usernameControl?.touched || this.submitted)) ||
-      false
+      null
     );
   }
 
-  isPasswordEmpty(): boolean {
+  isPasswordEmpty(): boolean | null {
     const passwordControl = this.loginForm.get('password');
     return (
       (passwordControl?.invalid &&
         (passwordControl?.touched || this.submitted)) ||
-      false
+      null
     );
   }
 

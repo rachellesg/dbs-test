@@ -1,9 +1,17 @@
 <div class="login-wrapper">
-  <h1>Welcome back!</h1>
+  <h1>Welcome back! <br />Please log in to your account.</h1>
+  <p>Experience the power and convenience of our platform that brings together the best features for your needs. Whether
+    you're a professional, a student, or an enthusiast, our platform has something to offer you.
+    Sign in to access your account and enjoy personalized experiences.
+  </p>
+  <h3>Ready to get started? Login to your account below.</h3>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="input-element" [ngClass]="{ error: isUsernameInvalid() }">
       <label for="username">Username:</label>
-      <input type="text" id="username" class="form-control" formControlName="username" />
+      <span>
+        <input type="text" id="username" class="form-control" formControlName="username"
+          placeholder="Enter your username" />
+      </span>
       <div
         *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid && loginForm.controls['username'].hasError('required')"
         class=" small">
@@ -11,10 +19,16 @@
     </div>
     <div class="input-element" [ngClass]="{ error: isPasswordEmpty() }">
       <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password">
+      <span>
+        <input type="password" id="password" formControlName="password">
+      </span>
       <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')"
         class="error small">
         Password is required.</div>
+    </div>
+    <div class="row">
+      <label for="remember"><input id="remember" type="checkbox" /> Remember me</label>
+      <a href="#">Forgot Password?</a>
     </div>
     <button class="button primary" type="submit">Login</button>
     <p>{{ message }}</p>
