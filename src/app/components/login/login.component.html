@@ -1,13 +1,22 @@
-<h2>Login</h2>
-<form (ngSubmit)="login()">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" id="username" [(ngModel)]="username" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" [(ngModel)]="password" required>
-  </div>
-  <button type="submit">Login</button>
-  <p>{{ message }}</p>
-</form>
+<div class="login-wrapper">
+  <h1>Welcome back!</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="input-element" [ngClass]="{ error: isUsernameInvalid() }">
+      <label for="username">Username:</label>
+      <input type="text" id="username" class="form-control" formControlName="username" />
+      <div
+        *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid && loginForm.controls['username'].hasError('required')"
+        class=" small">
+        Username is required.</div>
+    </div>
+    <div class="input-element" [ngClass]="{ error: isPasswordEmpty() }">
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')"
+        class="error small">
+        Password is required.</div>
+    </div>
+    <button class="button primary" type="submit">Login</button>
+    <p>{{ message }}</p>
+  </form>
+</div>

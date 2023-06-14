@@ -1,12 +1,22 @@
 @import "_variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Oswald:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 body,
 html {
   padding: 0;
   font-family: $font-family-body;
-  font-size: $font-size-medium;
+  font-size: $font-size-small;
   line-height: $line-height-medium;
   color: $color-text;
   background: $color-background;
+}
+
+h1 {
+  font-family: $font-family-body;
+  color: $color-text;
+}
+
+.small {
+  font-size: $font-size-xs;
+  line-height: $line-height-small;
 }

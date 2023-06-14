@@ -1,0 +1,65 @@
+@import "../../../variables.scss";
+
+.login-wrapper {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.input-element {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 0 15px 0;
+  label {
+    font-size: $font-size-xs;
+    margin: 0 0 5px 0;
+  }
+
+  input {
+    font-family: $font-family-body;
+    padding: 8px 12px;
+    outline: 1px solid $color-grey;
+    border: none;
+    border-radius: $border-radius-small;
+    transition: outline-color 1s ease;
+    &:focus-visible {
+      box-shadow: 0 0 5px $color-primary-400;
+      outline: 1px solid $color-primary-400;
+    }
+  }
+}
+
+.error {
+  color: $color-error;
+  input {
+    background-color: rgba($color-error, 0.1);
+    box-shadow: 0 0 5px $color-error;
+    outline: 1px solid $color-error;
+    margin: 0 0 8px 0;
+    &:focus-visible {
+      box-shadow: 0 0 5px $color-error;
+      outline: 1px solid $color-error;
+    }
+  }
+}
+
+.button {
+  font-family: $font-family-body;
+  font-size: $font-size-small;
+  border-radius: $border-radius-medium;
+  color: $color-white;
+  padding: 8px 12px;
+  margin: 15px 0 0;
+  min-width: 120px;
+  width: 100%;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &.primary {
+    background-color: $color-primary-800;
+  }
+  &.secondary {
+    background-color: $color-grey;
+    color: $color-text;
+  }
+}
