@@ -1,5 +1,4 @@
 @import "_variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 
 body,
 html {
@@ -12,11 +11,18 @@ html {
 }
 
 h1 {
-  font-family: $font-family-body;
+  font-family: $font-family-header;
+  font-size: $font-size-xxl;
   color: $color-text;
+  letter-spacing: -1px;
 }
 
 .small {
   font-size: $font-size-xs;
   line-height: $line-height-small;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
 }
