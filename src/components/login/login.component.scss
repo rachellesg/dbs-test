@@ -20,7 +20,6 @@
     outline: 1px solid $color-grey-900;
     border: none;
     border-radius: $border-radius-small;
-    transition: outline-color 1s ease;
     width: 100%;
     box-sizing: border-box;
     &:focus-visible {
