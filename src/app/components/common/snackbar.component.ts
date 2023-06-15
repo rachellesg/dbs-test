@@ -7,10 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class SnackbarComponent {
   @Input() message: string = '';
+  @Input() variant: string = ''; // Updated to have a type of string
+
   showSnackbar: boolean = false;
 
-  openSnackbar(message: string): void {
+  openSnackbar(message: string, variant: string): void {
     this.message = message;
+    this.variant = variant;
     this.showSnackbar = true;
     setTimeout(() => {
       this.closeSnackbar();

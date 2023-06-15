@@ -1,3 +1,4 @@
-<div class="snackbar" [class.show]="showSnackbar">
+<div class="snackbar"
+  [ngClass]="{'error': variant === 'error', 'success': variant === 'success', 'show': showSnackbar}">
   {{ message }}
 </div>

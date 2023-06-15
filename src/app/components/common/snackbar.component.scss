@@ -12,9 +12,14 @@
   opacity: 0;
   pointer-events: none;
   z-index: 999;
-}
-
-.snackbar.show {
-  opacity: 1;
-  pointer-events: auto;
+  &.success {
+    background-color: $color-success;
+  }
+  &.error {
+    background-color: $color-error;
+  }
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

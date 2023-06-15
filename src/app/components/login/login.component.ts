@@ -23,9 +23,9 @@ export class LoginComponent {
     });
   }
 
-  showSnackbar(message: string): void {
+  showSnackbar(message: string, variant: string): void {
     this.snackbarMessage = message;
-    this.snackbarComponent.openSnackbar(message);
+    this.snackbarComponent.openSnackbar(message, variant);
   }
 
   isFieldInvalid(fieldName: string): boolean | null {
@@ -50,8 +50,8 @@ export class LoginComponent {
     const isUsernameInvalid = this.isFieldInvalid('username');
     const isPasswordEmpty = this.isFieldInvalid('password');
 
-    if (this.loginForm.invalid || isUsernameInvalid || isPasswordEmpty) {
-      this.showSnackbar('Please enter both username and password.');
+    if (this.loginForm.invalid || (isUsernameInvalid && isPasswordEmpty)) {
+      this.showSnackbar('Please enter the missing required fields.', 'error');
       return;
     }
 
@@ -59,9 +59,10 @@ export class LoginComponent {
     const password = this.loginForm.controls['password']?.value;
 
     if (username === 'admin' && password === 'password') {
-      this.message = 'Login successful!';
+      this.showSnackbar('Login success!', 'success');
+      return;
     } else {
-      this.message = 'Invalid username or password.';
+      this.showSnackbar('Invalid username or password.', 'error');
     }
 
     this.loginForm.reset();
