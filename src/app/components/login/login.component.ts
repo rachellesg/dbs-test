@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SnackbarComponent } from '../common/snackbar.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [SnackbarComponent],
 })
 export class LoginComponent {
+  @ViewChild(SnackbarComponent) snackbarComponent!: SnackbarComponent;
+  snackbarMessage: string = '';
   loginForm: FormGroup;
   message: string = '';
   submitted: boolean = false;
@@ -17,6 +21,11 @@ export class LoginComponent {
       username: ['', [Validators.required, Validators.maxLength(60)]],
       password: ['', [Validators.required, Validators.maxLength(60)]],
     });
+  }
+
+  showSnackbar(message: string): void {
+    this.snackbarMessage = message;
+    this.snackbarComponent.openSnackbar(message);
   }
 
   isFieldInvalid(fieldName: string): boolean | null {
@@ -42,7 +51,7 @@ export class LoginComponent {
     const isPasswordEmpty = this.isFieldInvalid('password');
 
     if (this.loginForm.invalid || isUsernameInvalid || isPasswordEmpty) {
-      this.message = 'Please enter both username and password.';
+      this.showSnackbar('Please enter both username and password.');
       return;
     }
 

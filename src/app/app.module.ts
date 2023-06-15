@@ -4,10 +4,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-import { ButtonComponent } from './components/common/button.component';
+import { SnackbarComponent } from './components/common/snackbar.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ButtonComponent],
+  declarations: [AppComponent, LoginComponent, SnackbarComponent],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

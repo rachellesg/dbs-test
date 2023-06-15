@@ -21,7 +21,8 @@
       [ngClass]="{ error: isFieldInvalid('password'), success: !isFieldInvalid('password') && isFieldTouched('password') }">
       <label for="password">Password:</label>
       <span>
-        <input type="password" id="password" formControlName="password" placeholder="********">
+        <input type="password" id="password" formControlName="password" placeholder="********"
+          (blur)="setFieldTouched('password')">
       </span>
       <div *ngIf="(isFieldTouched('password') || submitted) && isFieldInvalid('password')" class="error small">
         Password is required.
@@ -32,7 +33,6 @@
       <a href="#">Forgot Password?</a>
     </div>
     <button class="button primary" type="submit">Login</button>
-    <p>{{ message }}</p>
   </form>
-
+  <app-snackbar [message]="snackbarMessage"></app-snackbar>
 </div>
