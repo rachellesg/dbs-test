@@ -6,8 +6,7 @@
   </p>
   <h3>Ready to get started? Login to your account below.</h3>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="input-element"
-      [ngClass]="{ error: isFieldInvalid('username'), success: !isFieldInvalid('username') && isFieldTouched('username') }">
+    <div class="input-element" [ngClass]="{ error: isFieldInvalid('username')}">
       <label for="username">Username:</label>
       <span>
         <input type="text" id="username" class="form-control" formControlName="username"
@@ -17,8 +16,7 @@
         Username is required.
       </div>
     </div>
-    <div class="input-element"
-      [ngClass]="{ error: isFieldInvalid('password'), success: !isFieldInvalid('password') && isFieldTouched('password') }">
+    <div class="input-element" [ngClass]="{ error: isFieldInvalid('password') }">
       <label for="password">Password:</label>
       <span>
         <input type="password" id="password" formControlName="password" placeholder="********"
