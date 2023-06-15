@@ -16,11 +16,11 @@ html {
   overflow: hidden;
 }
 
-@media screen and (max-width: 991px) {
-  body {
-    overflow: scroll;
-  }
-}
+// @media screen and (max-width: 991px) {
+//   body {
+//     overflow: scroll;
+//   }
+// }
 
 h1 {
   font-family: $font-family-header;
@@ -28,6 +28,12 @@ h1 {
   line-height: $font-size-hero;
   color: $color-text;
   letter-spacing: -1px;
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: $font-size-xxl;
+  }
 }
 
 h3 {
