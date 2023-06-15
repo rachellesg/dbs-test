@@ -5,9 +5,15 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SnackbarComponent } from './components/common/snackbar.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, SnackbarComponent],
+  declarations: [
+    AppComponent,
+    HeroComponent,
+    LoginComponent,
+    SnackbarComponent,
+  ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
