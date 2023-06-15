@@ -8,11 +8,51 @@
   align-items: center;
 }
 
+@media screen and (max-width: 991px) {
+  .wrapper {
+    display: block;
+  }
+}
+
 .container {
-  width: 50vw;
   padding: 80px;
+  min-width: 50vw;
   box-sizing: border-box;
   max-width: 1700px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    padding: 40px;
+  }
+}
+
+.slide-down {
+  color: $color-secondary-400;
+  animation: slideDown 1.5s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  color: $color-secondary-400;
+  animation: slideUp 1.5s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(+100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

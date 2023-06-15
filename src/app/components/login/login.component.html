@@ -6,21 +6,23 @@
   </p>
   <h3>Ready to get started? Login to your account below.</h3>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="input-element" [ngClass]="{ error: isUsernameInvalid() }">
+    <div class="input-element"
+      [ngClass]="{ error: isUsernameInvalid(), success: !isUsernameInvalid() && isUsernameTouched }">
       <label for="username">Username:</label>
       <span>
         <input type="text" id="username" class="form-control" formControlName="username"
-          placeholder="Enter your username" />
+          placeholder="Enter your username" (blur)="isUsernameTouched = true" />
       </span>
       <div
         *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid && loginForm.controls['username'].hasError('required')"
-        class=" small">
+        class="small">
         Username is required.</div>
     </div>
-    <div class="input-element" [ngClass]="{ error: isPasswordEmpty() }">
+    <div class="input-element"
+      [ngClass]="{ error: isPasswordEmpty(), success: !isPasswordEmpty() && isPasswordTouched }">
       <label for="password">Password:</label>
       <span>
-        <input type="password" id="password" formControlName="password">
+        <input type="password" id="password" formControlName="password" placeholder="********">
       </span>
       <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')"
         class="error small">

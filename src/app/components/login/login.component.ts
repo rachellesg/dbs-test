@@ -10,11 +10,13 @@ export class LoginComponent {
   loginForm: FormGroup;
   message: string = '';
   submitted: boolean | null = null;
+  isUsernameTouched: boolean = false;
+  isPasswordTouched: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['', Validators.required, Validators.maxLength(60)],
+      password: ['', Validators.required, Validators.maxLength(60)],
     });
   }
 
