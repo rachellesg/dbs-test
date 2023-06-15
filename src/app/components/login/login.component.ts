@@ -9,42 +9,43 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
   message: string = '';
-  submitted: boolean | null = null;
-  isUsernameTouched: boolean = false;
-  isPasswordTouched: boolean = false;
+  submitted: boolean = false;
+  fieldTouched: { [key: string]: boolean } = {};
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required, Validators.maxLength(60)],
-      password: ['', Validators.required, Validators.maxLength(60)],
+      username: ['', [Validators.required, Validators.maxLength(60)]],
+      password: ['', [Validators.required, Validators.maxLength(60)]],
     });
   }
 
-  isUsernameInvalid(): boolean | null {
-    const usernameControl = this.loginForm.get('username');
+  isFieldInvalid(fieldName: string): boolean | null {
+    const fieldControl = this.loginForm.get(fieldName);
     return (
-      (usernameControl?.invalid &&
-        (usernameControl?.touched || this.submitted)) ||
+      (fieldControl?.invalid && (fieldControl?.touched || this.submitted)) ||
       null
     );
   }
 
-  isPasswordEmpty(): boolean | null {
-    const passwordControl = this.loginForm.get('password');
-    return (
-      (passwordControl?.invalid &&
-        (passwordControl?.touched || this.submitted)) ||
-      null
-    );
+  isFieldTouched(fieldName: string): boolean {
+    return !!this.fieldTouched[fieldName];
+  }
+
+  setFieldTouched(fieldName: string): void {
+    this.fieldTouched[fieldName] = true;
   }
 
   login(): void {
     this.submitted = true;
 
-    if (this.loginForm.invalid) {
+    const isUsernameInvalid = this.isFieldInvalid('username');
+    const isPasswordEmpty = this.isFieldInvalid('password');
+
+    if (this.loginForm.invalid || isUsernameInvalid || isPasswordEmpty) {
       this.message = 'Please enter both username and password.';
       return;
     }
+
     const username = this.loginForm.controls['username']?.value;
     const password = this.loginForm.controls['password']?.value;
 
@@ -54,8 +55,8 @@ export class LoginComponent {
       this.message = 'Invalid username or password.';
     }
 
-    // Reset form after login attempt
     this.loginForm.reset();
+    this.fieldTouched = {};
     this.submitted = false;
   }
 }

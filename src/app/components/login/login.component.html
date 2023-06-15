@@ -7,26 +7,25 @@
   <h3>Ready to get started? Login to your account below.</h3>
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="input-element"
-      [ngClass]="{ error: isUsernameInvalid(), success: !isUsernameInvalid() && isUsernameTouched }">
+      [ngClass]="{ error: isFieldInvalid('username'), success: !isFieldInvalid('username') && isFieldTouched('username') }">
       <label for="username">Username:</label>
       <span>
         <input type="text" id="username" class="form-control" formControlName="username"
-          placeholder="Enter your username" (blur)="isUsernameTouched = true" />
+          placeholder="Enter your username" (blur)="setFieldTouched('username')" />
       </span>
-      <div
-        *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].invalid && loginForm.controls['username'].hasError('required')"
-        class="small">
-        Username is required.</div>
+      <div *ngIf="(isFieldTouched('username') || submitted) && isFieldInvalid('username')" class="small">
+        Username is required.
+      </div>
     </div>
     <div class="input-element"
-      [ngClass]="{ error: isPasswordEmpty(), success: !isPasswordEmpty() && isPasswordTouched }">
+      [ngClass]="{ error: isFieldInvalid('password'), success: !isFieldInvalid('password') && isFieldTouched('password') }">
       <label for="password">Password:</label>
       <span>
         <input type="password" id="password" formControlName="password" placeholder="********">
       </span>
-      <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required')"
-        class="error small">
-        Password is required.</div>
+      <div *ngIf="(isFieldTouched('password') || submitted) && isFieldInvalid('password')" class="error small">
+        Password is required.
+      </div>
     </div>
     <div class="row">
       <label for="remember"><input id="remember" type="checkbox" /> Remember me</label>
@@ -35,4 +34,5 @@
     <button class="button primary" type="submit">Login</button>
     <p>{{ message }}</p>
   </form>
+
 </div>
