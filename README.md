@@ -1,4 +1,11 @@
-# DbsTest
+# DBS UX ENGINEER TEST
+
+## Brief
+
+Design and build a login component using Angular comprising reusable UI
+components and design-tokens and render it in a modern web browser.
+
+...
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
