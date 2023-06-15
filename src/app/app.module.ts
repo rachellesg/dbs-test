@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SnackbarComponent } from './components/common/snackbar.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { HeroComponent } from './components/hero/hero.component';
     HeroComponent,
     LoginComponent,
     SnackbarComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
