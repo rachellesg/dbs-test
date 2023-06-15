@@ -60,9 +60,9 @@ export class LoginComponent {
 
     if (username === 'admin' && password === 'password') {
       this.showSnackbar('Login success!', 'success');
-      return;
     } else {
       this.showSnackbar('Invalid username or password.', 'error');
+      return;
     }
 
     this.loginForm.reset();

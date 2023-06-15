@@ -1,0 +1,14 @@
+@import "../../variables";
+
+nav {
+  display: flex;
+  column-gap: 10px;
+  justify-content: flex-end;
+  a {
+    &:hover {
+      border-radius: 50%;
+      background: $color-secondary-100;
+      box-shadow: none;
+    }
+  }
+}
