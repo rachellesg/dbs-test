@@ -1,7 +1,10 @@
 @import "../../variables";
+@import "../../animations";
 
 .login-wrapper {
   margin: 0 auto;
+  opacity: 0;
+  animation: slideInAnimation 1.5s ease-in-out forwards;
 }
 
 .input-element {
@@ -82,24 +85,4 @@ h1 {
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-}
-
-@-webkit-keyframes animated-text {
-  0% {
-    width: 0;
-  }
-
-  to {
-    width: 400px;
-  }
-}
-
-@keyframes animated-text {
-  0% {
-    width: 0;
-  }
-
-  to {
-    width: 400px;
-  }
 }

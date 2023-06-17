@@ -1,13 +1,35 @@
 @import "../../variables";
+@import "../../animations";
 
 .hero_image {
-  height: 100vh;
-  width: 581px;
-  z-index: -1;
+  width: 50vw;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  .image {
+    &.banking,
+    &.shopping {
+      animation: floatingCloud 2s infinite;
+    }
+    &.transactions,
+    &.savings {
+      animation: floatingCloud 2.5s infinite;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+  .row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .hero_image {
+    z-index: -1;
     transform: rotate(90deg);
     position: fixed;
     bottom: -660px;
@@ -23,46 +45,3 @@
     bottom: -370px;
   }
 }
-
-.slide-down {
-  color: $color-secondary-4;
-  animation: slideDown 1.5s ease-in-out forwards;
-}
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.slide-up {
-  color: $color-secondary-4;
-  animation: slideUp 1.5s ease-in-out forwards;
-}
-
-@keyframes slideUp {
-  0% {
-    transform: translateY(+100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-// @media screen and (min-width: 442px) and (max-width: 990px) {
-//   .slide-up,
-//   .slide-down {
-//     animation: slideOut 2s ease forwards;
-//   }
-//   @keyframes slideOut {
-//     0% {
-//       transform: translateY(+100%);
-//     }
-//     100% {
-//       transform: translateY(-200%);
-//     }
-//   }
-// }
