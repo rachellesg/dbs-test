@@ -7,6 +7,7 @@ import { LoginComponent } from '../components/login/login.component';
 import { SnackbarComponent } from '../components/common/snackbar.component';
 import { HeroComponent } from '../components/hero/hero.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { ButtonComponent } from 'src/components/common/button.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HeaderComponent } from '../components/header/header.component';
     HeroComponent,
     LoginComponent,
     SnackbarComponent,
+    ButtonComponent,
     HeaderComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
