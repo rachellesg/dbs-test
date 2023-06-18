@@ -1,10 +1,17 @@
 @import "../../variables";
+@import "../../animations";
 
 nav {
   display: flex;
   column-gap: 10px;
   justify-content: flex-end;
+  margin: 15px 0;
   a {
+    animation: floatingCloud 2s ease;
+    -webkit-animation: floatingCloud 2s ease; /* Safari and Chrome */
+    -moz-animation: floatingCloud 2s ease; /* Firefox */
+    -ms-animation: floatingCloud 2s ease; /* Internet Explorer */
+    -o-animation: floatingCloud 2s ease; /* Opera */
     &:hover {
       border-radius: 50%;
       background: $color-secondary-1;

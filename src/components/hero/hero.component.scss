@@ -2,46 +2,46 @@
 @import "../../animations";
 
 .hero_image {
-  width: 50vw;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  .image {
-    &.banking,
-    &.shopping {
-      animation: floatingCloud 2s infinite;
-    }
-    &.transactions,
-    &.savings {
-      animation: floatingCloud 2.5s infinite;
-    }
-    img {
-      max-width: 100%;
-    }
-  }
-  .row {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-  }
-}
+  animation: slideInRight 2s ease;
+  -webkit-animation: slideInRight 2s ease; /* Safari and Chrome */
+  -moz-animation: slideInRight 2s ease; /* Firefox */
+  -ms-animation: slideInRight 2s ease; /* Internet Explorer */
+  -o-animation: slideInRight 2s ease; /* Opera */
 
-@media screen and (max-width: 768px) {
-  .hero_image {
-    z-index: -1;
-    transform: rotate(90deg);
-    position: fixed;
-    bottom: -660px;
-    z-index: 2;
-    width: 1010px;
-    height: auto;
+  &:after {
+    position: absolute;
+    content: "";
+    right: 5%;
+    top: 5%;
+    width: 50px;
+    height: 50px;
+    transform-origin: center center;
+    animation: spin 10s infinite;
+    -webkit-animation: spin 10s infinite; /* Safari and Chrome */
+    -moz-animation: spin 10s infinite; /* Firefox */
+    -ms-animation: spin 10s infinite; /* Internet Explorer */
+    -o-animation: spin 10s infinite; /* Opera */
+    background: url("../../assets/images/hero/star.svg") center no-repeat;
   }
-}
-
-@media screen and (max-width: 375px) {
-  .hero_image {
-    width: 1500px;
-    bottom: -370px;
+  &:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    transform-origin: center center;
+    animation: spin 2s infinite;
+    -webkit-animation: spin 2s infinite; /* Safari and Chrome */
+    -moz-animation: spin 2s infinite; /* Firefox */
+    -ms-animation: spin 2s infinite; /* Internet Explorer */
+    -o-animation: spin 2s infinite; /* Opera */
+    background: url("../../assets/images/hero/star.svg") no-repeat;
+    background-size: 100% 100%;
+  }
+  img {
+    max-width: 100%;
+    position: relative;
   }
 }

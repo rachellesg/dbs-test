@@ -4,7 +4,7 @@
 .login-wrapper {
   margin: 0 auto;
   opacity: 0;
-  animation: slideInAnimation 1.5s ease-in-out forwards;
+  animation: slideIn 1.5s ease-in-out forwards;
 }
 
 .input-element {
@@ -58,31 +58,18 @@
   }
 }
 
-.button {
-  font-family: $font-family-body;
-  font-size: $font-size-small;
-  border-radius: $border-radius-medium;
-  padding: 8px 12px;
-  margin: 15px 0 0;
-  min-width: 120px;
-  width: 100%;
-  outline: none;
-  border: 1px solid $color-primary-text;
-  cursor: pointer;
-  &.primary {
-    background-color: $color-secondary;
-    box-shadow: 4px 4px $color-secondary-3;
-    &:hover {
-      transform: translateY(4px) translateX(4px);
-      box-shadow: 2px 2px $color-secondary-3;
-    }
-  }
-}
-
 h1 {
-  -webkit-animation: animated-text 2s steps(50) 0.5s 1 normal both;
-  animation: animated-text 2s steps(50) 0.5s 1 normal both;
+  -webkit-animation: animated-text 2s steps(20) 0.5s 1 normal both;
+  animation: animated-text 2s steps(20) 0.5s 1 normal both;
   display: flex;
   overflow: hidden;
   white-space: nowrap;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    -webkit-animation: none;
+    animation: none;
+    margin: 0;
+  }
 }

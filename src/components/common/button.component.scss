@@ -12,11 +12,12 @@ button {
   border: 1px solid $color-primary-text;
   cursor: pointer;
   &.primary {
-    background-color: $color-secondary;
-    box-shadow: 4px 4px $color-secondary-3;
+    background-color: $color-primary-button-background;
+    box-shadow: 3px 4px $color-primary-button-shadow;
+    color: $color-primary-button-text;
     &:hover {
       transform: translateY(4px) translateX(4px);
-      box-shadow: 2px 2px $color-secondary-3;
+      box-shadow: 0 0;
     }
   }
 }
