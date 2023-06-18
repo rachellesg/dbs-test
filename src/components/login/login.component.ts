@@ -13,7 +13,7 @@ export class LoginComponent {
   snackbarMessage = '';
   loginForm: FormGroup;
   submitted = false;
-  fieldTouched: { [key: string]: boolean } = {};
+  rememberMe: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
@@ -32,6 +32,11 @@ export class LoginComponent {
     return (fieldControl?.invalid && this.submitted) || null;
   }
 
+  toggleRememberMe(event: Event): void {
+    const checked = (event.target as HTMLInputElement).checked;
+    this.rememberMe = checked;
+  }
+
   login(): void {
     this.submitted = true;
 
@@ -44,7 +49,6 @@ export class LoginComponent {
     const isPasswordInvalid = this.isFieldInvalid('password');
 
     if (this.loginForm.invalid || (isUsernameInvalid && isPasswordInvalid)) {
-      console.log(this.loginForm.invalid, isUsernameInvalid, isPasswordInvalid);
       this.showSnackbar('Please enter the missing required fields.', 'error');
       return;
     }
@@ -53,6 +57,14 @@ export class LoginComponent {
     const password = this.loginForm.get('password')?.value;
 
     if (username === 'admin' && password === 'password') {
+      if (this.rememberMe) {
+        localStorage.setItem('rememberMe', 'true');
+        localStorage.setItem('username', username);
+      } else {
+        localStorage.removeItem('rememberMe');
+        localStorage.removeItem('username');
+      }
+
       this.showSnackbar('Login success!', 'success');
     } else {
       this.showSnackbar('Invalid username or password.', 'error');
@@ -60,7 +72,18 @@ export class LoginComponent {
     }
 
     this.loginForm.reset();
-    this.fieldTouched = {};
     this.submitted = false;
+  }
+
+  ngOnInit() {
+    const rememberMeState = localStorage.getItem('rememberMe');
+    this.rememberMe = rememberMeState === 'true';
+
+    if (this.rememberMe) {
+      const storedUsername = localStorage.getItem('username');
+      if (storedUsername) {
+        this.loginForm.patchValue({ username: storedUsername });
+      }
+    }
   }
 }
