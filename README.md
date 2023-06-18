@@ -1,34 +1,24 @@
-# DBS UX ENGINEER TEST
+# DBS UX Engineer Test - Login Component
 
-## Brief
+This repository contains my solution for the DBS UX Engineer Test, which involves designing and building a login component using Angular, reusable UI components, and design tokens. The login component is intended to be rendered in a modern web browser.
 
-Design and build a login component using Angular comprising reusable UI
-components and design-tokens and render it in a modern web browser.
+## Technologies Used
 
-...
+- Angular: A popular JavaScript framework for building web applications.
+- HTML: Markup language for creating the structure of the login component.
+- CSS: Styling language used to define the appearance of the login component.
+- TypeScript: Typed superset of JavaScript used for writing Angular code.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+## Installation and Usage
 
-## Development server
+To run the login component in a local development environment, follow these steps:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Clone the repository: git clone <repository-url>
+- Navigate to the project directory: cd dbs-test
+- Install the dependencies: npm install
+- Start the development server: npm start
+- Open a web browser and navigate to http://localhost:4200 to view the login component.
 
-## Code scaffolding
+## Acknowledgements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+I would like to express my gratitude to DBS for providing this opportunity to showcase my skills as a UX Engineer. The test was challenging and allowed me to apply my knowledge of Angular, reusable UI components, and design tokens in a real-world scenario.
