@@ -48,8 +48,8 @@ export class LoginComponent {
     const isUsernameInvalid = this.isFieldInvalid('username');
     const isPasswordInvalid = this.isFieldInvalid('password');
 
-    if (this.loginForm.invalid || (isUsernameInvalid && isPasswordInvalid)) {
-      this.showSnackbar('Please enter the missing required fields.', 'error');
+    if (this.loginForm.invalid && isUsernameInvalid && isPasswordInvalid) {
+      this.showSnackbar('Please enter your username and password', 'error');
       return;
     }
 
@@ -67,7 +67,13 @@ export class LoginComponent {
 
       this.showSnackbar('Login success!', 'success');
     } else {
-      this.showSnackbar('Invalid username or password.', 'error');
+      if (isUsernameInvalid && !isPasswordInvalid) {
+        this.showSnackbar('Please enter your username', 'error');
+      } else if (isPasswordInvalid && !isUsernameInvalid) {
+        this.showSnackbar('Please enter your password', 'error');
+      } else {
+        this.showSnackbar('Incorrect username or password.', 'error');
+      }
       return;
     }
 

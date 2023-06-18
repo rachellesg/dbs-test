@@ -15,8 +15,9 @@
     </app-input-field>
 
     <div class="row">
-      <label for="remember"><input id="remember" type="checkbox" [checked]="rememberMe"
-          (change)="toggleRememberMe($event)" /> Remember me</label>
+      <label for="remember" class="checkbox-wrapper">
+        <input id="remember" type="checkbox" [checked]="rememberMe" (change)="toggleRememberMe($event)" /> Remember
+        me</label>
       <a href="#">Forgot Password?</a>
     </div>
     <app-button variant="primary" type="submit">Login</app-button>
