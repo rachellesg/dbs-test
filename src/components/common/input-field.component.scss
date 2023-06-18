@@ -1,0 +1,53 @@
+@import "../../variables";
+@import "../../animations";
+
+.input-element {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 15px 0;
+  width: 100%;
+  label {
+    font-size: $font-size-small;
+    margin: 0 0 5px 0;
+  }
+
+  input {
+    font-family: $font-family-body;
+    padding: 8px 12px;
+    outline: 1px solid $color-black-3;
+    border: none;
+    border-radius: $border-radius-small;
+    width: 100%;
+    box-sizing: border-box;
+    &:focus-visible {
+      box-shadow: 0 0 5px $color-secondary-4;
+      outline: 1px solid $color-secondary-4;
+    }
+    &:-internal-autofill-selected {
+      background-color: rgba($color-success, 0.1);
+    }
+  }
+}
+
+.error {
+  color: $color-error;
+  position: relative;
+  & span:after {
+    position: absolute;
+    right: 5px;
+    top: 31px;
+    width: 25px;
+    height: 25px;
+    content: url('data:image/svg+xml,<%3Fxml version="1.0" encoding="utf-8"%3F><svg width="25px" height="25px" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 16V14.5M12.5 9V13M20.5 12.5C20.5 16.9183 16.9183 20.5 12.5 20.5C8.08172 20.5 4.5 16.9183 4.5 12.5C4.5 8.08172 8.08172 4.5 12.5 4.5C16.9183 4.5 20.5 8.08172 20.5 12.5Z" stroke="%23bb342f" stroke-width="1.2"/></svg>');
+  }
+  input {
+    background-color: rgba($color-error, 0.1);
+    box-shadow: 0 0 5px $color-error;
+    outline: 1px solid $color-error;
+    margin: 0 0 8px 0;
+    &:focus-visible {
+      box-shadow: 0 0 5px $color-error;
+      outline: 1px solid $color-error;
+    }
+  }
+}

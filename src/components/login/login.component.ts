@@ -10,10 +10,9 @@ import { SnackbarComponent } from '../common/snackbar.component';
 })
 export class LoginComponent {
   @ViewChild(SnackbarComponent) snackbarComponent!: SnackbarComponent;
-  snackbarMessage: string = '';
+  snackbarMessage = '';
   loginForm: FormGroup;
-  message: string = '';
-  submitted: boolean = false;
+  submitted = false;
   fieldTouched: { [key: string]: boolean } = {};
 
   constructor(private formBuilder: FormBuilder) {
@@ -30,33 +29,28 @@ export class LoginComponent {
 
   isFieldInvalid(fieldName: string): boolean | null {
     const fieldControl = this.loginForm.get(fieldName);
-    return (
-      (fieldControl?.invalid && (fieldControl?.touched || this.submitted)) ||
-      null
-    );
-  }
-
-  isFieldTouched(fieldName: string): boolean {
-    return !!this.fieldTouched[fieldName];
-  }
-
-  setFieldTouched(fieldName: string): void {
-    this.fieldTouched[fieldName] = true;
+    return (fieldControl?.invalid && this.submitted) || null;
   }
 
   login(): void {
     this.submitted = true;
 
-    const isUsernameInvalid = this.isFieldInvalid('username');
-    const isPasswordEmpty = this.isFieldInvalid('password');
+    Object.keys(this.loginForm.controls).forEach((field) => {
+      const control = this.loginForm.get(field);
+      control?.markAsTouched();
+    });
 
-    if (this.loginForm.invalid || (isUsernameInvalid && isPasswordEmpty)) {
+    const isUsernameInvalid = this.isFieldInvalid('username');
+    const isPasswordInvalid = this.isFieldInvalid('password');
+
+    if (this.loginForm.invalid || (isUsernameInvalid && isPasswordInvalid)) {
+      console.log(this.loginForm.invalid, isUsernameInvalid, isPasswordInvalid);
       this.showSnackbar('Please enter the missing required fields.', 'error');
       return;
     }
 
-    const username = this.loginForm.controls['username']?.value;
-    const password = this.loginForm.controls['password']?.value;
+    const username = this.loginForm.get('username')?.value;
+    const password = this.loginForm.get('password')?.value;
 
     if (username === 'admin' && password === 'password') {
       this.showSnackbar('Login success!', 'success');

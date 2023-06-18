@@ -8,6 +8,7 @@ import { SnackbarComponent } from '../components/common/snackbar.component';
 import { HeroComponent } from '../components/hero/hero.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { ButtonComponent } from 'src/components/common/button.component';
+import { InputFieldComponent } from 'src/components/common/input-field.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ButtonComponent } from 'src/components/common/button.component';
     SnackbarComponent,
     ButtonComponent,
     HeaderComponent,
+    InputFieldComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],

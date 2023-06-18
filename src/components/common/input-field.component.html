@@ -1,0 +1,10 @@
+<div class="input-element" [ngClass]="{ error: control!.invalid && control!.touched }">
+  <label [for]="id">{{ label }}:</label>
+  <span>
+    <input [type]="type" [id]="id" [formControl]="control" [placeholder]="placeholder"
+      [attr.aria-invalid]="control!.invalid && control!.touched ? 'true' : null" [attr.aria-describedby]="errorId" />
+  </span>
+  <div [id]="errorId" role="alert" *ngIf="control!.invalid && control!.touched">
+    {{ error }}
+  </div>
+</div>
