@@ -23,3 +23,13 @@
     pointer-events: auto;
   }
 }
+
+@media screen and (max-width: 414px) {
+  .snackbar {
+    top: 0;
+    bottom: auto;
+    right: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+}
