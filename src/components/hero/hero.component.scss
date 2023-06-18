@@ -22,7 +22,7 @@
     -moz-animation: spin 10s infinite; /* Firefox */
     -ms-animation: spin 10s infinite; /* Internet Explorer */
     -o-animation: spin 10s infinite; /* Opera */
-    background: url("/assets/images/hero/star.svg") center no-repeat;
+    background: url("~src/assets/images/hero/star.svg") center no-repeat;
   }
   &:before {
     position: absolute;
@@ -37,7 +37,7 @@
     -moz-animation: spin 2s infinite; /* Firefox */
     -ms-animation: spin 2s infinite; /* Internet Explorer */
     -o-animation: spin 2s infinite; /* Opera */
-    background: url("/assets/images/hero/star.svg") no-repeat;
+    background: url("~src//assets/images/hero/star.svg") no-repeat;
     background-size: 100% 100%;
   }
   img {
